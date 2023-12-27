@@ -1,11 +1,10 @@
 import numpy as np
-import GC as g
 import open3d as o3d
 
 
 #global lookup tables creation function
 
-def lookuptable(bound_min,bound_max,grid_step):
+def funcCompCodebook(bound_min,bound_max,grid_step):
     grid_space = np.mgrid[bound_min:(bound_max+grid_step):grid_step, bound_min:(bound_max+grid_step):grid_step, bound_min:(bound_max+grid_step):grid_step].reshape(3, -1).T
 
     #global point cloud PC_g
@@ -28,7 +27,7 @@ lower_bound = -2.8
 gridStep = 0.02 #step size for 3D grid creation
 
 
-Clookup, Gvoxel, grid = g.funcCompressPC(lower_bound,upper_bound,gridStep)
+Clookup, Gvoxel, grid = funcCompCodebook(lower_bound,upper_bound,gridStep)
 
 
 
